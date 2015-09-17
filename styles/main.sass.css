@@ -1,0 +1,35 @@
+body {
+  background: #000000;
+  color: #ffffff; }
+  body #top {
+    background: grey;
+    overflow: hidden;
+    text-align: left; }
+    body #top #leftChat {
+      display: inline-block;
+      width: 18em;
+      margin-left: 35%;
+      margin-top: 3em;
+      margin-bottom: 3em; }
+      body #top #leftChat label {
+        text-align: left;
+        display: inline-block; }
+      body #top #leftChat #text {
+        width: 100%;
+        height: 5em; }
+    body #top #rightChat {
+      display: inline-block;
+      margin: 5px;
+      margin-top: 3em;
+      margin-bottom: 3em;
+      width: 16em;
+      vertical-align: top; }
+      body #top #rightChat #send {
+        display: block;
+        width: 7em; }
+      body #top #rightChat #clear {
+        display: block;
+        width: 7em; }
+  body #bottom {
+    overflow: scroll;
+    font-size: 20px; }
