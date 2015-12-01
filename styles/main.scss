@@ -6,6 +6,7 @@ body {
 		background: grey;
 		overflow: hidden;
 		text-align: left;
+		// position: fixed;
 
 
 		#leftChat {
@@ -52,5 +53,24 @@ body {
 	#bottom {
 		overflow: scroll;
 		font-size: 20px;
+		height: 28em;
+
+		.messageBox {
+			// width: 35%;
+			// margin: 0 auto;
+			// text-align: center;
+
+			.time {
+				// color: blue;
+			}
+
+			.handle {
+				display: inline-block;
+			}
+
+			.message {
+				display: inline-block;
+			}
+		}
 	}
 }
