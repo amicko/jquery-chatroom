@@ -17,15 +17,15 @@ $(document).ready(function(){
 		var sendMessage = $text.val();
 		var time = new Date();
 		
-		$.post(
-			'http://tiyfe.herokuapp.com/collections/micko-chat-message/',
-			{date: time, name: title, message: sendMessage},
-			function(result) {
-				// console.log(title, sendMessage);
-				// $bottom.append('<div>' + title + ': ' + sendMessage + '</div>');
-			},
-			'json'
-			)
+		// $.post(
+		// 	'http://tiyfe.herokuapp.com/collections/micko-chat-message/',
+		// 	{date: time, name: title, message: sendMessage},
+		// 	function(result) {
+		// 		// console.log(title, sendMessage);
+		// 		// $bottom.append('<div>' + title + ': ' + sendMessage + '</div>');
+		// 	},
+		// 	'json'
+		// 	)
 
 		$text.val('');
 	})
@@ -55,14 +55,14 @@ $(document).ready(function(){
 
 	setInterval(function() {
 		$bottom.html('');
-		$.get(
-			'http://tiyfe.herokuapp.com/collections/micko-chat-message/',
-			function(response) {
-				for(var i = 0; i < response.length; i++) {
-					$bottom.append('<div>' + response[i].date + '<br />' + response[i].name + ': ' + response[i].message + '</div');
-				}
-			}
-		)
+		// $.get(
+		// 	'http://tiyfe.herokuapp.com/collections/micko-chat-message/',
+		// 	function(response) {
+		// 		for(var i = 0; i < response.length; i++) {
+		// 			$bottom.append('<div>' + response[i].date + '<br />' + response[i].name + ': ' + response[i].message + '</div');
+		// 		}
+		// 	}
+		// )
 	}, 2000);
 
 
