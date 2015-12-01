@@ -3,6 +3,7 @@
 
 $(document).ready(function () {
 
+	Parse.initialize('YkFK8qhHXsCDzAxXZcSZjIWjSMZNhrg41yE44hMd', 'oKerLrQEXU3HWO5NiUWSVnwSQKmmg2tFZihnpRHs');
 	var $text = $('#text');
 	var $send = $('#send');
 	var $clear = $('#clear');
@@ -12,16 +13,34 @@ $(document).ready(function () {
 	var title = $handle.val();
 	var sendMessage = $text.val();
 
-	$send.click(function () {
+	var MessageModel = Parse.Object.extend('MessageModel');
 
+	$send.click(function () {
 		var title = $handle.val();
 		var sendMessage = $text.val();
 		var time = new Date();
 
-		$.post('http://tiyfe.herokuapp.com/collections/micko-chat-message/', { date: time, name: title, message: sendMessage }, function (result) {
-			// console.log(title, sendMessage);
-			// $bottom.append('<div>' + title + ': ' + sendMessage + '</div>');
-		}, 'json');
+		var NewMessage = new MessageModel({
+			Title: title,
+			Message: sendMessage,
+			PostDate: time
+		}).save();
+
+		$bottom.html('');
+		var MessageQuery = new Parse.Query(MessageModel);
+		var Messages = null;
+
+		MessageQuery.descending('createdAt').find().then(function (messages) {
+			Messages = messages;
+
+			if (!Messages) {
+				console.log('Loading...');
+			} else {
+				var MessageList = Messages.map(function (message) {
+					return $bottom.append('<div class="messageBox"><div class="time">Time Posted: ' + message.get('PostDate') + '</div><div class="handle">' + message.get('Title') + ': <div class="message">' + message.get('Message') + '</div></div></div>');
+				});
+			}
+		});
 
 		$text.val('');
 	});
@@ -29,32 +48,25 @@ $(document).ready(function () {
 	$clear.click(function () {
 		$text.val('');
 		$handle.val('');
-
-		// $.get(
-		// 'http://tiyfe.herokuapp.com/collections/micko-chat-message/',
-		// function(response) {
-		// 	response.forEach(function(record) {
-		// 		var url = 'http://tiyfe.herokuapp.com/collections/micko-chat-message/' + record._id
-		// 		console.log(url);
-		// 		$.ajax({
-		// 			url: url,
-		// 			method: 'DELETE',
-
-		// 		})
-		// 	});
-		// },
-		// 'json'
-		// )
 	});
 
-	setInterval(function () {
-		$bottom.html('');
-		$.get('http://tiyfe.herokuapp.com/collections/micko-chat-message/', function (response) {
-			for (var i = 0; i < response.length; i++) {
-				$bottom.append('<div>' + response[i].date + '<br />' + response[i].name + ': ' + response[i].message + '</div');
-			}
-		});
-	}, 2000);
+	// setInterval(function() {
+	$bottom.html('');
+	var MessageQuery = new Parse.Query(MessageModel);
+	var Messages = null;
+
+	MessageQuery.descending('createdAt').find().then(function (messages) {
+		Messages = messages;
+
+		if (!Messages) {
+			console.log('Loading...');
+		} else {
+			var MessageList = Messages.map(function (message) {
+				return $bottom.append('<div class="messageBox"><div class="time">Time Posted: ' + message.get('PostDate') + '</div><div class="handle">' + message.get('Title') + ': <div class="message">' + message.get('Message') + '</div></div></div>');
+			});
+		}
+	});
+	// }, 2000);
 });
 
 },{}]},{},[1])
