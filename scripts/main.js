@@ -1,8 +1,27 @@
 'use strict';
+var Backbone = require('backbone');
+Parse.initialize('YkFK8qhHXsCDzAxXZcSZjIWjSMZNhrg41yE44hMd', 'oKerLrQEXU3HWO5NiUWSVnwSQKmmg2tFZihnpRHs');
+
 
 $(document).ready(function(){
+	var Router = Backbone.Router.extend({
+		routes: {
+			'' : 'homepage',
+			'chatroom' : 'chatroom'
+		},
+		homepage: function() {
+			$('section').hide();
+			$('.homepage').show();
+		},
+		chatroom: function() {
+			$('section').hide();
+			$('.chatStarTrek').show();
+		}
+	});
 
-	Parse.initialize('YkFK8qhHXsCDzAxXZcSZjIWjSMZNhrg41yE44hMd', 'oKerLrQEXU3HWO5NiUWSVnwSQKmmg2tFZihnpRHs');
+	var r = new Router();
+	Backbone.history.start();
+
 	var $text = $('#text');
 	var $send = $('#send');
 	var $clear = $('#clear');
@@ -37,7 +56,7 @@ $(document).ready(function(){
 			}
 			else {
 				var MessageList = Messages.map(function(message) {
-					return $bottom.append('<div class="messageBox"><div class="time">Time Posted: ' + message.get('PostDate') + '</div><div class="handle">' + message.get('Title') + ': <div class="message">' + message.get('Message') + '</div></div></div>')
+					return $bottom.append('<section class="messageBox"><img class="avatar" src=""/><div class="handle">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="message">' + message.get('Message') + '</div></section>')
 				}) 
 			}
 		})
@@ -63,7 +82,7 @@ $(document).ready(function(){
 			}
 			else {
 				var MessageList = Messages.map(function(message) {
-					return $bottom.append('<div class="messageBox"><div class="time">Time Posted: ' + message.get('PostDate') + '</div><div class="handle">' + message.get('Title') + ': <div class="message">' + message.get('Message') + '</div></div></div>')
+					return $bottom.append('<section class="messageBox"><img class="avatar" src=""/><div class="handle">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="message">' + message.get('Message') + '</div></section>')
 				}) 
 			}
 		})

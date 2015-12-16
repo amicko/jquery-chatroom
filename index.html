@@ -5,21 +5,65 @@
 	<link rel="stylesheet" type="text/css" href="./styles/main.sass.css">
 </head>
 <body>
-	<div id="top">
-		<div id="leftChat">
-			<label>Message</label>
-			<textarea id="text"></textarea>
-			<label>Handle</label>
-			<input type="text" id="handle">
+	<section class="homepage">
+		<div class="banner">
+			<div class="bannerTop">
+				<a href="#chatroom"><img class="gear" src="images/gear.svg"/>Register</a>
+				<img class="bannerTitle" src="images/otf-title.svg">
+				<p>a sci-fi & fantasy community</p>
+				<img class="bannerLogo" src="images/otf-logo.svg"/>
+			</div>
+			<div class="bannerBottom"></div>
 		</div>
-		<div id="rightChat">
-			<button id="send">Transmit</button>
-			<button id="clear">Clear</button>
+		<div class="middle">
+			<div class="status"></div>
+			<div class="login">
+				<a href="#chatroom"><div class="chatDetailsBox">
+					<img class="chatImage" src="images/chat-tf.jpg">
+					<div class="chatThumbST">
+						<h3 class="chatThumbTitleST">TEN FORWARD</h3>
+						<P class="chatThumbDetailsST">Chat with your fellow Star Trek fans at the Ten Forward lounge.</P>
+					</div>
+				</div></a>
+				<ul>
+					<a href="#chatroom"><li>
+						<div class="chatThumbST">
+						<h3 class="chatThumbTitleST">TEN FORWARD</h3>
+						<P class="chatThumbDetailsST">A Star Trek Themed Chat</P>
+					</div>
+					</li></a>
+				</ul>
+			</div>
 		</div>
-	</div>
-	<div id="bottom">
 		
-	</div>
+		<div class="footer">
+			<p>Star Trek, Star Trek: The Next Generation, Star Trek: Deep Space Nine, Star Trek: Voyager, and Star Trek: Enterprise are registered trademarks of Paramount Pictures Inc. Star Wars is a registered trademark of LucasFilm Ltd. Game of Thrones is a registered trademark of HBO. All Star Trek, Star Wars, and Game of Thrones characters, images, and related marks on this and all linked pages are the property of their respective owners. This site and all affiliated materials are in no way, shape, or form associated with either Paramount Pictures Inc., LucasFilm Ltd., or HBO. This site is for non-commercial purposes only. Any misuse of copyright materials is purely accidental. All Outpost 10F images, files, and associated marks are the property of Outpost 10F and its respective members.</p>
+		</div>
+	</section>
+	<section class="chatStarTrek">
+		<div id="top">
+			<div class="chatBox">
+				<img class="topChat" src="images/otf_topChatBar.gif">
+				<div id="messageBox">
+					<label>Message</label>
+					<textarea id="text"></textarea>
+					<div class="addOn">
+						<label type="text">Handle</label>
+						<input type="text" id="handle"/>
+					</div>
+				</div>
+
+				<div id="rightChat">
+					<button id="send">Transmit</button>
+					<button id="clear">Clear</button>
+				</div>
+				<img class="bottomChat" src="images/otf_bottomChatBar.png">
+			</div>
+		</div>
+		<div id="bottom">
+			
+		</div>
+	</section>
 
 <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
 <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
