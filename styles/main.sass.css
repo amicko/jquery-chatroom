@@ -1,40 +1,218 @@
+a {
+  text-decoration: none; }
+
 body {
-  background: #000000;
-  color: #ffffff; }
-  body #top {
-    background: grey;
-    overflow: hidden;
-    text-align: left; }
-    body #top #leftChat {
-      display: inline-block;
-      width: 18em;
-      margin-left: 35%;
-      margin-top: 3em;
-      margin-bottom: 3em; }
-      body #top #leftChat label {
-        text-align: left;
-        display: inline-block; }
-      body #top #leftChat #text {
+  margin: 0; }
+  body .homepage {
+    background-color: #292929;
+    padding-top: 1px;
+    font-family: verdana; }
+    body .homepage .banner {
+      width: 95%;
+      margin: 1em auto;
+      border: 1px solid #78999D;
+      border-radius: 10px;
+      background-color: #093142; }
+      body .homepage .banner .bannerTop {
+        border: 1px solid #355E6F;
+        border-radius: 10px 10px 0 0;
+        height: 4em;
+        margin-bottom: 1px; }
+        body .homepage .banner .bannerTop a {
+          color: #fff;
+          text-decoration: none;
+          position: absolute;
+          top: 7%;
+          left: 4%;
+          font-size: 0.75em; }
+          body .homepage .banner .bannerTop a .gear {
+            height: 28px;
+            vertical-align: middle; }
+        body .homepage .banner .bannerTop .bannerTitle {
+          height: 1.8em;
+          float: right;
+          position: absolute;
+          top: 1.8em;
+          right: 10em; }
+        body .homepage .banner .bannerTop p {
+          display: block;
+          float: right;
+          position: absolute;
+          top: 4em;
+          right: 12em;
+          color: #fff;
+          font-size: 0.75em; }
+        body .homepage .banner .bannerTop .bannerLogo {
+          height: 120px;
+          float: right;
+          position: absolute;
+          top: 0.5em;
+          right: 0.4em; }
+      body .homepage .banner .bannerBottom {
+        height: 2em;
         width: 100%;
-        height: 5em; }
-    body #top #rightChat {
-      display: inline-block;
-      margin: 5px;
-      margin-top: 3em;
-      margin-bottom: 3em;
-      width: 16em;
-      vertical-align: top; }
-      body #top #rightChat #send {
-        display: block;
-        width: 7em; }
-      body #top #rightChat #clear {
-        display: block;
-        width: 7em; }
-  body #bottom {
-    overflow: scroll;
-    font-size: 20px;
-    height: 28em; }
-    body #bottom .messageBox .handle {
-      display: inline-block; }
-    body #bottom .messageBox .message {
-      display: inline-block; }
+        background-color: #001122;
+        border: 1px solid #355E6F;
+        border-radius: 0 0 10px 10px; }
+    body .homepage .middle {
+      width: 95%;
+      margin: 1em auto;
+      box-sizing: border-box; }
+      body .homepage .middle .status {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 35%;
+        height: 20em;
+        border: 1px solid #78999D;
+        border-radius: 10px;
+        background-color: #093142;
+        margin-right: 1.5%; }
+      body .homepage .middle .login {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 62%;
+        height: 20em;
+        border: 1px solid #78999D;
+        border-radius: 10px;
+        background-color: #093142; }
+        body .homepage .middle .login .chatDetailsBox {
+          display: inline-block;
+          width: 45%;
+          float: left;
+          position: relative;
+          top: 1em;
+          left: 1em; }
+          body .homepage .middle .login .chatDetailsBox .chatImage {
+            width: 100%; }
+          body .homepage .middle .login .chatDetailsBox .chatThumbST {
+            color: #fff;
+            text-align: center;
+            font-family: monospace;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            margin-top: -3px; }
+            body .homepage .middle .login .chatDetailsBox .chatThumbST .chatThumbTitleST {
+              background-color: #B3875C;
+              margin: 0;
+              font-size: 1.2em; }
+            body .homepage .middle .login .chatDetailsBox .chatThumbST .chatThumbDetailsST {
+              background-color: #A5723F;
+              margin: 0;
+              font-size: 0.8em;
+              padding: 1em 0; }
+          body .homepage .middle .login .chatDetailsBox .chatThumbST:hover .chatThumbTitleST {
+            background-color: #BA936C; }
+          body .homepage .middle .login .chatDetailsBox .chatThumbST:hover .chatThumbDetailsST {
+            background-color: #AE8052; }
+        body .homepage .middle .login ul {
+          display: inline-block;
+          width: 45%;
+          float: right;
+          position: relative;
+          right: 1em; }
+          body .homepage .middle .login ul li {
+            list-style-type: none; }
+            body .homepage .middle .login ul li .chatThumbST {
+              color: #fff;
+              text-align: center;
+              font-family: monospace; }
+              body .homepage .middle .login ul li .chatThumbST .chatThumbTitleST {
+                background-color: #B3875C;
+                margin: 0;
+                font-size: 1.2em; }
+              body .homepage .middle .login ul li .chatThumbST .chatThumbDetailsST {
+                background-color: #A5723F;
+                margin: 0;
+                font-size: 0.8em;
+                padding: 1em 0; }
+            body .homepage .middle .login ul li .chatThumbST:hover .chatThumbTitleST {
+              background-color: #BA936C; }
+            body .homepage .middle .login ul li .chatThumbST:hover .chatThumbDetailsST {
+              background-color: #AE8052; }
+    body .homepage .footer {
+      width: 95%;
+      font-size: 0.55em;
+      color: #fff;
+      text-align: center;
+      /*height: 4em;*/
+      margin: 0 auto;
+      border: 1px solid #78999D;
+      border-radius: 10px;
+      background-color: #093142; }
+  body .chatStarTrek {
+    background: #000000;
+    color: #ffffff; }
+    body .chatStarTrek #top {
+      background: #000;
+      overflow: hidden;
+      text-align: left; }
+      body .chatStarTrek #top .chatBox {
+        box-sizing: border-box;
+        width: 32em;
+        margin: 0 auto; }
+        body .chatStarTrek #top .chatBox .topChat {
+          height: 2em;
+          width: 31em; }
+        body .chatStarTrek #top .chatBox #messageBox {
+          width: 53%;
+          height: 4em;
+          display: inline-block;
+          margin-left: 6.5em;
+          position: relative;
+          top: -1em; }
+          body .chatStarTrek #top .chatBox #messageBox label {
+            text-align: left;
+            width: 3em; }
+          body .chatStarTrek #top .chatBox #messageBox #text {
+            width: 95%;
+            height: 5em;
+            background-color: #000;
+            border: 1px solid grey; }
+          body .chatStarTrek #top .chatBox #messageBox #text:focus {
+            color: #fff;
+            font-size: 0.75em;
+            height: 6.75em; }
+          body .chatStarTrek #top .chatBox #messageBox .addOn {
+            float: right;
+            margin-right: 0.5em; }
+            body .chatStarTrek #top .chatBox #messageBox .addOn #handle {
+              background-color: #000;
+              border: 1px solid grey;
+              width: 7em; }
+            body .chatStarTrek #top .chatBox #messageBox .addOn #handle:focus {
+              color: #fff;
+              font-size: 0.75em;
+              width: 7.75em; }
+        body .chatStarTrek #top .chatBox #rightChat {
+          display: inline-block;
+          width: 25%;
+          vertical-align: top; }
+          body .chatStarTrek #top .chatBox #rightChat #send {
+            display: block;
+            width: 7em; }
+          body .chatStarTrek #top .chatBox #rightChat #clear {
+            display: block;
+            width: 7em; }
+        body .chatStarTrek #top .chatBox .bottomChat {
+          height: 2em;
+          width: 31em; }
+    body .chatStarTrek #bottom {
+      overflow: scroll;
+      font-size: 20px;
+      height: 17em; }
+      body .chatStarTrek #bottom .messageBox {
+        margin: 0.5em 0; }
+        body .chatStarTrek #bottom .messageBox .avatar {
+          height: 2.5em;
+          width: 2em; }
+        body .chatStarTrek #bottom .messageBox .time {
+          display: inline-block;
+          font-size: 0.5em; }
+        body .chatStarTrek #bottom .messageBox .handle {
+          display: inline-block;
+          color: lightblue;
+          padding-right: 0.25em; }
+        body .chatStarTrek #bottom .messageBox .message {
+          display: block;
+          font-size: 0.75em;
+          margin: -3px 0 0 0; }
