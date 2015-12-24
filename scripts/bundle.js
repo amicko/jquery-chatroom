@@ -12765,7 +12765,7 @@ $(document).ready(function () {
 	$('#loginAvatar').click(function () {
 		// console.log($('#loginAvatar').val())
 		console.log('Select Clicked');
-		$('#avvyPic').css('background-image', 'url(../' + $('#loginAvatar').val() + ')');
+		$('#avvyPic').css('background-image', 'url(' + $('#loginAvatar').val() + ')');
 	});
 
 	var $text = $('#text');
