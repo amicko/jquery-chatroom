@@ -12726,7 +12726,7 @@ $(document).ready(function () {
 			birthDay: $('#day').val()
 		}, {
 			success: function success(u) {
-				console.log('User Registered');
+				r.navigate('loginST', { trigger: true });
 			},
 			error: function error(u, _error) {
 				console.log('User Not Registered');

@@ -66,7 +66,7 @@ $(document).ready(function(){
 			},
 			{
 				success: (u) => {
-					console.log('User Registered')
+					r.navigate('loginST', {trigger: true});
 				},
 				error: (u, error) => {
 					console.log('User Not Registered')
