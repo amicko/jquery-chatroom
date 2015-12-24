@@ -18,14 +18,14 @@ body {
         border-radius: 10px 10px 0 0;
         height: 4em;
         margin-bottom: 1px; }
-        body .homepage .banner .bannerTop a {
+        body .homepage .banner .bannerTop .gearLink {
           color: #fff;
           text-decoration: none;
           position: absolute;
           top: 7%;
           left: 4%;
           font-size: 0.75em; }
-          body .homepage .banner .bannerTop a .gear {
+          body .homepage .banner .bannerTop .gearLink .gear {
             height: 28px;
             vertical-align: middle; }
         body .homepage .banner .bannerTop .bannerTitle {
@@ -42,12 +42,14 @@ body {
           right: 12em;
           color: #fff;
           font-size: 0.75em; }
-        body .homepage .banner .bannerTop .bannerLogo {
-          height: 120px;
-          float: right;
-          position: absolute;
-          top: 0.5em;
-          right: 0.4em; }
+        body .homepage .banner .bannerTop .bannerLogoLink {
+          display: block; }
+          body .homepage .banner .bannerTop .bannerLogoLink .bannerLogo {
+            height: 120px;
+            float: right;
+            position: absolute;
+            top: 0.5em;
+            right: 0.4em; }
       body .homepage .banner .bannerBottom {
         height: 2em;
         width: 100%;
@@ -62,20 +64,33 @@ body {
         box-sizing: border-box;
         display: inline-block;
         width: 35%;
-        height: 20em;
+        min-height: 20em;
+        /*height: 20em;*/
         border: 1px solid #78999D;
         border-radius: 10px;
         background-color: #093142;
-        margin-right: 1.5%; }
+        margin-right: 1.5%;
+        vertical-align: top;
+        text-align: center;
+        color: #fff; }
+        body .homepage .middle .status h2 {
+          margin: 7px; }
+        body .homepage .middle .status p {
+          font-size: 10px; }
+          body .homepage .middle .status p a {
+            color: #F5CA02; }
+        body .homepage .middle .status h3 a {
+          color: #F5CA02; }
       body .homepage .middle .login {
         box-sizing: border-box;
         display: inline-block;
         width: 62%;
-        height: 20em;
+        min-height: 20em;
         border: 1px solid #78999D;
         border-radius: 10px;
         background-color: #093142; }
         body .homepage .middle .login .chatDetailsBox {
+          box-sizing: border-box;
           display: inline-block;
           width: 45%;
           float: left;
@@ -85,6 +100,7 @@ body {
           body .homepage .middle .login .chatDetailsBox .chatImage {
             width: 100%; }
           body .homepage .middle .login .chatDetailsBox .chatThumbST {
+            box-sizing: border-box;
             color: #fff;
             text-align: center;
             font-family: monospace;
@@ -105,13 +121,15 @@ body {
           body .homepage .middle .login .chatDetailsBox .chatThumbST:hover .chatThumbDetailsST {
             background-color: #AE8052; }
         body .homepage .middle .login ul {
+          box-sizing: border-box;
           display: inline-block;
-          width: 45%;
+          width: 53%;
           float: right;
           position: relative;
           right: 1em; }
           body .homepage .middle .login ul li {
-            list-style-type: none; }
+            list-style-type: none;
+            box-sizing: border-box; }
             body .homepage .middle .login ul li .chatThumbST {
               color: #fff;
               text-align: center;
@@ -139,6 +157,255 @@ body {
       border: 1px solid #78999D;
       border-radius: 10px;
       background-color: #093142; }
+  body .register {
+    background-color: #292929;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-family: verdana; }
+    body .register .banner {
+      width: 95%;
+      margin: 1em auto;
+      border: 1px solid #78999D;
+      border-radius: 10px;
+      background-color: #093142; }
+      body .register .banner .bannerTop {
+        border: 1px solid #355E6F;
+        border-radius: 10px 10px 0 0;
+        height: 4em;
+        margin-bottom: 1px; }
+        body .register .banner .bannerTop .gearLink {
+          display: none;
+          color: #fff;
+          text-decoration: none;
+          position: absolute;
+          top: 7%;
+          left: 4%;
+          font-size: 0.75em; }
+          body .register .banner .bannerTop .gearLink .gear {
+            height: 28px;
+            vertical-align: middle; }
+        body .register .banner .bannerTop .bannerTitle {
+          height: 1.8em;
+          float: right;
+          position: absolute;
+          top: 1.8em;
+          right: 10em; }
+        body .register .banner .bannerTop p {
+          display: block;
+          float: right;
+          position: absolute;
+          top: 4em;
+          right: 12em;
+          color: #fff;
+          font-size: 0.75em; }
+        body .register .banner .bannerTop .bannerLogoLink {
+          display: block; }
+          body .register .banner .bannerTop .bannerLogoLink .bannerLogo {
+            height: 120px;
+            float: right;
+            position: absolute;
+            top: 0.5em;
+            right: 0.4em; }
+      body .register .banner .bannerBottom {
+        height: 2em;
+        width: 100%;
+        background-color: #001122;
+        border: 1px solid #355E6F;
+        border-radius: 0 0 10px 10px; }
+    body .register .registerBox {
+      width: 95%;
+      margin: 1em auto;
+      border: 1px solid #78999D;
+      border-radius: 10px;
+      background-color: #001122;
+      color: #fff;
+      padding-bottom: 1px; }
+      body .register .registerBox .primeDirectives h1 {
+        font-size: 20px;
+        margin-left: 0.5em; }
+      body .register .registerBox .primeDirectives h3 {
+        color: #F5CA02;
+        font-size: 13px;
+        margin-left: 0.75em; }
+      body .register .registerBox .primeDirectives p {
+        font-size: 9px;
+        margin-left: 1em;
+        margin-right: 1em; }
+        body .register .registerBox .primeDirectives p span a {
+          color: #F5CA02; }
+      body .register .registerBox .primeDirectives ol {
+        font-size: 9px;
+        margin-left: 1em;
+        margin-right: 7em; }
+      body .register .registerBox .primeDirectives button {
+        font-family: verdana;
+        border: 1px solid #fff;
+        background-color: #7F9EB0;
+        color: #fff;
+        font-size: 8px;
+        font-weight: bold;
+        padding: 1px 6px;
+        height: 1.7em;
+        margin-left: 1em;
+        margin-bottom: 2em;
+        cursor: pointer; }
+      body .register .registerBox .internalData {
+        display: none; }
+        body .register .registerBox .internalData h1 {
+          font-size: 20px;
+          margin-left: 0.5em; }
+        body .register .registerBox .internalData h3 {
+          color: #F5CA02;
+          font-size: 13px;
+          margin-left: 0.75em; }
+        body .register .registerBox .internalData table {
+          margin: 0 auto; }
+          body .register .registerBox .internalData table tbody th {
+            background-color: #013243;
+            text-align: left;
+            font-size: 11px; }
+          body .register .registerBox .internalData table tbody tr .cellName {
+            background-color: #1C537A;
+            padding: 3px;
+            min-width: 330px;
+            width: 330px; }
+            body .register .registerBox .internalData table tbody tr .cellName h5 {
+              font-size: 10px; }
+              body .register .registerBox .internalData table tbody tr .cellName h5 span {
+                color: #AB5577; }
+            body .register .registerBox .internalData table tbody tr .cellName p {
+              font-size: 10px; }
+          body .register .registerBox .internalData table tbody tr .cellValue {
+            vertical-align: bottom;
+            background-color: #013243;
+            min-width: 72px;
+            width: 72px;
+            font-size: 10px; }
+            body .register .registerBox .internalData table tbody tr .cellValue input {
+              background-color: #1C537A;
+              color: #fff; }
+            body .register .registerBox .internalData table tbody tr .cellValue select {
+              background-color: #1C537A;
+              color: #fff; }
+        body .register .registerBox .internalData .arrowBox {
+          margin-left: 1em; }
+          body .register .registerBox .internalData .arrowBox button {
+            font-family: verdana;
+            border: 1px solid #fff;
+            background-color: #7F9EB0;
+            color: #fff;
+            font-size: 8px;
+            font-weight: bold;
+            padding: 1px 6px;
+            height: 1.7em;
+            /*margin-left: 0.5em;*/
+            margin-bottom: 2em;
+            cursor: pointer; }
+  body .loginStarTrek {
+    background-color: #000;
+    padding-bottom: 1em; }
+    body .loginStarTrek div .loginHeaderImage {
+      display: block;
+      width: 580px;
+      margin: 0 auto; }
+    body .loginStarTrek div table {
+      margin: 1em auto;
+      border: 15px solid transparent;
+      -moz-border-image-top: url("../images/header.gif") 30 30 repeat;
+      /* Old Firefox */
+      -webkit-border-image-top: url("../images/header.gif") 30 30 repeat;
+      /* Safari */
+      -o-border-image-top: url("../images/header.gif") 30 30 repeat;
+      /* Opera */
+      border-image-top: url("../images/header.gif") 30 30 repeat; }
+      body .loginStarTrek div table tbody .tableButtonRow td {
+        padding-top: 1em; }
+        body .loginStarTrek div table tbody .tableButtonRow td button {
+          padding: 0; }
+          body .loginStarTrek div table tbody .tableButtonRow td button img {
+            width: 140px;
+            margin-left: -3.5em;
+            margin-right: -1em;
+            cursor: pointer; }
+          body .loginStarTrek div table tbody .tableButtonRow td button .loginButtonRegister {
+            margin-left: 0;
+            margin-right: 0;
+            cursor: pointer; }
+      body .loginStarTrek div table tbody .tableButtonRow .loginTableBorder {
+        padding-top: 0; }
+        body .loginStarTrek div table tbody .tableButtonRow .loginTableBorder img {
+          height: 50px;
+          width: 6px;
+          position: relative;
+          left: -12px; }
+      body .loginStarTrek div table tbody tr .loginTableHeader img {
+        height: 61px;
+        width: 570px; }
+      body .loginStarTrek div table tbody tr td {
+        color: #fff;
+        font-weight: bold; }
+        body .loginStarTrek div table tbody tr td img {
+          height: 24px;
+          vertical-align: middle;
+          margin: -6px -1px -3px -3px; }
+      body .loginStarTrek div table tbody tr .loginBoxTitle {
+        /*height: 1em;*/
+        font-size: 14px;
+        line-height: 15px;
+        background-color: #9999CC;
+        color: #fff;
+        width: 150px;
+        padding-left: 3px;
+        font-weight: bold;
+        /*border: 1px solid #000;*/ }
+      body .loginStarTrek div table tbody tr .loginBoxInput {
+        background-color: #7E7E7E;
+        padding: 3px 0 3px 5px;
+        width: 242px; }
+        body .loginStarTrek div table tbody tr .loginBoxInput input {
+          height: 11px;
+          font-size: 11px; }
+        body .loginStarTrek div table tbody tr .loginBoxInput #avvyPic {
+          /*background-color: blue;*/
+          height: 55px;
+          width: 50px;
+          background-size: cover;
+          background-image: url("../images/st_avatars/picard1.jpg"); }
+      body .loginStarTrek div table tbody tr .loginBoxSpace {
+        width: 200px; }
+      body .loginStarTrek div table tbody tr .loginBoxRight img {
+        padding-left: 3px; }
+      body .loginStarTrek div table tbody tr .loginTableFooter img {
+        width: 570px; }
+      body .loginStarTrek div table tbody tr .loginTableBorder {
+        margin-top: 0;
+        padding-top: 0; }
+        body .loginStarTrek div table tbody tr .loginTableBorder img {
+          height: 30px;
+          width: 6px;
+          position: relative;
+          left: -6px; }
+      body .loginStarTrek div table tbody tr td .loginBoxRight {
+        width: 100px; }
+      body .loginStarTrek div table tbody tr td .avatarPreview1 {
+        padding-top: 1px;
+        height: 57px;
+        width: 30px; }
+      body .loginStarTrek div table tbody tr td .avatarPreview2 {
+        padding-top: 1px;
+        height: 57px;
+        width: 92px; }
+      body .loginStarTrek div table tbody tr td .avatarPreview3 {
+        height: 59px; }
+    body .loginStarTrek hr {
+      width: 580px;
+      margin: 0 auto; }
+    body .loginStarTrek .footer {
+      width: 580px;
+      font-size: 0.75em;
+      color: #fff;
+      text-align: center;
+      margin: 0 auto; }
   body .chatStarTrek {
     background: #000000;
     color: #ffffff; }
@@ -165,9 +432,11 @@ body {
             width: 3em; }
           body .chatStarTrek #top .chatBox #messageBox #text {
             width: 95%;
-            height: 5em;
+            height: 6.75em;
+            font-size: 0.75em;
             background-color: #000;
-            border: 1px solid grey; }
+            border: 1px solid grey;
+            color: #fff; }
           body .chatStarTrek #top .chatBox #messageBox #text:focus {
             color: #fff;
             font-size: 0.75em;
@@ -175,11 +444,13 @@ body {
           body .chatStarTrek #top .chatBox #messageBox .addOn {
             float: right;
             margin-right: 0.5em; }
-            body .chatStarTrek #top .chatBox #messageBox .addOn #handle {
+            body .chatStarTrek #top .chatBox #messageBox .addOn #to {
               background-color: #000;
               border: 1px solid grey;
-              width: 7em; }
-            body .chatStarTrek #top .chatBox #messageBox .addOn #handle:focus {
+              width: 7em;
+              color: #fff;
+              height: 1em; }
+            body .chatStarTrek #top .chatBox #messageBox .addOn #to:focus {
               color: #fff;
               font-size: 0.75em;
               width: 7.75em; }
@@ -189,10 +460,40 @@ body {
           vertical-align: top; }
           body .chatStarTrek #top .chatBox #rightChat #send {
             display: block;
-            width: 7em; }
+            height: 23px;
+            width: 105px;
+            background-image: url("../images/transmit.gif");
+            background-size: auto auto;
+            border: none;
+            cursor: pointer;
+            margin: 3px 0; }
+          body .chatStarTrek #top .chatBox #rightChat #receive {
+            display: block;
+            height: 23px;
+            width: 105px;
+            background-image: url("../images/receive.gif");
+            background-size: auto auto;
+            border: none;
+            cursor: pointer;
+            margin: 3px 0; }
           body .chatStarTrek #top .chatBox #rightChat #clear {
             display: block;
-            width: 7em; }
+            height: 23px;
+            width: 105px;
+            background-image: url("../images/clear.gif");
+            background-size: auto auto;
+            border: none;
+            cursor: pointer;
+            margin: 3px 0; }
+          body .chatStarTrek #top .chatBox #rightChat #exit {
+            display: block;
+            height: 23px;
+            width: 105px;
+            background-image: url("../images/exit.gif");
+            background-size: auto auto;
+            border: none;
+            cursor: pointer;
+            margin: 3px 0; }
         body .chatStarTrek #top .chatBox .bottomChat {
           height: 2em;
           width: 31em; }
@@ -203,11 +504,11 @@ body {
       body .chatStarTrek #bottom .messageBox {
         margin: 0.5em 0; }
         body .chatStarTrek #bottom .messageBox .avatar {
-          height: 2.5em;
-          width: 2em; }
+          height: 50px;
+          width: 45px; }
         body .chatStarTrek #bottom .messageBox .time {
           display: inline-block;
-          font-size: 0.5em; }
+          font-size: 0.75em; }
         body .chatStarTrek #bottom .messageBox .handle {
           display: inline-block;
           color: lightblue;
@@ -216,3 +517,5 @@ body {
           display: block;
           font-size: 0.75em;
           margin: -3px 0 0 0; }
+          body .chatStarTrek #bottom .messageBox .message #toMessage {
+            font-weight: bold; }
