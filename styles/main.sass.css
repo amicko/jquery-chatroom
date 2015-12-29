@@ -287,6 +287,30 @@ body {
             body .register .registerBox .internalData table tbody tr .cellValue select {
               background-color: #1C537A;
               color: #fff; }
+          body .register .registerBox .internalData table tbody #usernameError {
+            display: none;
+            font-size: 10px;
+            color: red;
+            text-align: right;
+            width: 100%; }
+          body .register .registerBox .internalData table tbody #passwordError {
+            display: none;
+            font-size: 10px;
+            color: red;
+            text-align: right;
+            width: 100%; }
+          body .register .registerBox .internalData table tbody #screenNameError {
+            display: none;
+            font-size: 10px;
+            color: red;
+            text-align: right;
+            width: 100%; }
+          body .register .registerBox .internalData table tbody #emailError {
+            display: none;
+            font-size: 10px;
+            color: red;
+            text-align: right;
+            width: 100%; }
         body .register .registerBox .internalData .arrowBox {
           margin-left: 1em; }
           body .register .registerBox .internalData .arrowBox button {
@@ -304,6 +328,28 @@ body {
   body .loginStarTrek {
     background-color: #000;
     padding-bottom: 1em; }
+    body .loginStarTrek article {
+      display: none;
+      position: absolute;
+      background-color: black;
+      left: 35%;
+      top: 20em;
+      width: 300px;
+      border: 2px solid white;
+      border-radius: 15px;
+      color: red;
+      text-align: center;
+      margin: 0 auto;
+      opacity: 1;
+      z-index: 99; }
+      body .loginStarTrek article button {
+        background-color: #F4B424;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        border-radius: 15px;
+        padding: 0.05em 2em;
+        margin-bottom: 1em; }
     body .loginStarTrek div .loginHeaderImage {
       display: block;
       width: 580px;
@@ -502,20 +548,33 @@ body {
       font-size: 20px;
       height: 17em; }
       body .chatStarTrek #bottom .messageBox {
-        margin: 0.5em 0; }
+        margin: 0.5em 0;
+        /*border: 1px solid white;*/ }
         body .chatStarTrek #bottom .messageBox .avatar {
           height: 50px;
-          width: 45px; }
-        body .chatStarTrek #bottom .messageBox .time {
-          display: inline-block;
-          font-size: 0.75em; }
-        body .chatStarTrek #bottom .messageBox .handle {
-          display: inline-block;
-          color: lightblue;
-          padding-right: 0.25em; }
+          width: 45px;
+          float: left; }
+        body .chatStarTrek #bottom .messageBox .messageDetails {
+          padding-top: 0.75em; }
+          body .chatStarTrek #bottom .messageBox .messageDetails .time {
+            display: inline-block;
+            font-size: 0.75em;
+            /*border: 1px solid white;*/ }
+          body .chatStarTrek #bottom .messageBox .messageDetails .handle {
+            display: inline-block;
+            color: lightblue;
+            padding-right: 0.25em;
+            /*border: 1px solid white;*/ }
+          body .chatStarTrek #bottom .messageBox .messageDetails .tagline {
+            margin-left: 5em;
+            color: #F5CA02;
+            font-size: 11px;
+            /*border: 1px solid white;*/ }
         body .chatStarTrek #bottom .messageBox .message {
           display: block;
           font-size: 0.75em;
-          margin: -3px 0 0 0; }
+          margin: -3px 0 0 0;
+          /*border: 1px solid white;*/
+          clear: both; }
           body .chatStarTrek #bottom .messageBox .message #toMessage {
             font-weight: bold; }
