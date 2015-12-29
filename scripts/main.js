@@ -51,28 +51,81 @@ $(document).ready(function(){
 	})
 
 	$('.next2').click(function() {
-		var user = new Parse.User();
-		user.signUp(
-			{
-				username: $('#username').val(),
-				password: $('#password1').val(),
-				screenName: $('#screenName').val(),
-				email: $('#email').val(),
-				genre: $('#genre').val(),
-				newsletter: $('#newsletter').val(),
-				birthYear: $('#year').val(),
-				birthMonth: $('#month').val(),
-				birthDay: $('#day').val()
-			},
-			{
-				success: (u) => {
-					r.navigate('loginST', {trigger: true});
+		var $username = $('#username').val();
+		var $password1 = $('#password1').val();
+		var $password2 = $('#password2').val();
+		var $screenName = $('#screenName').val();
+		var $email = $('#email').val();
+		var regex = /^[0-9A-Za-z]+$/;
+
+		var validUsernameLength = false;
+		var validUsernameContent = false;
+		var validpasswordMatch = false;
+		var validPasswordLength = false;
+		var validScreenNameLength = false;
+		var validEmailLength = false;
+
+		if($username.length < 5) {
+			validUsernameLength = true;
+			$('.error').hide();
+			$('#usernameError').show();
+			$('#usernameError').html('Username must be at least 5 characters');
+		}
+		else if(!$username.match(regex)) {
+			validUsernameContent = true;
+			$('.error').hide();
+			$('#usernameError').show();
+			$('#usernameError').html('Username must not contain any special characters');
+		}
+		else if(!$password1.match($password2)) {
+			validpasswordMatch = true;
+			$('.error').hide();
+			$('#passwordError').show();
+			$('#passwordError').html('Your passwords must match');
+		}
+		else if($password1.length < 5 || $password2.length < 5) {
+			validPasswordLength = true;
+			$('.error').hide();
+			$('#passwordError').show();
+			$('#passwordError').html('Your password must be at least 5 characters');
+		}
+		else if(!$screenName) {
+			validScreenNameLength = true;
+			$('.error').hide();
+			$('#screenNameError').show();
+			$('#screenNameError').html('Your Screen Name must not be left empty');
+		}
+		else if(!$email) {
+			validEmailLength = true;
+			$('.error').hide();
+			$('#emailError').show();
+			$('#emailError').html('Your email must not be left empty');
+		}
+		else {
+			$('.error').hide();
+			var user = new Parse.User();
+			user.signUp(
+				{
+					username: $('#username').val(),
+					password: $('#password1').val(),
+					screenName: $('#screenName').val(),
+					email: $('#email').val(),
+					genre: $('#genre').val(),
+					newsletter: $('#newsletter').val(),
+					birthYear: $('#year').val(),
+					birthMonth: $('#month').val(),
+					birthDay: $('#day').val()
 				},
-				error: (u, error) => {
-					console.log('User Not Registered')
+				{
+					success: (u) => {
+						r.navigate('loginST', {trigger: true});
+					},
+					error: (u, error) => {
+						console.log('User Not Registered')
+					}
 				}
-			}
-		);
+			);
+		}
 
 	})
 
@@ -85,35 +138,52 @@ $(document).ready(function(){
 		var user = Parse.User.current();
 		var avatar = $('#loginAvatar').val()
 
-		Parse.User.logIn(
-			$('#loginName').val(),
-			$('#loginPassword').val(),
-			{
-				success: (u) => {
+		if(!($('#loginHandle').val())) {
+			$('article').show();
+			$('article p').html('Chat Handle cannot be left empty');
+			$('.loginStarTrek div').css('opacity', '0.4');
+		}
+		else {
+			Parse.User.logIn(
+				$('#loginName').val(),
+				$('#loginPassword').val(),
+				{
+					success: (u) => {
 
-				},
-				error: (u, error) => {
-					console.log('Error')
-				}
-			}
-		);
-
-		setTimeout(function() {
-				Parse.User.current().set('avatar', $('#loginAvatar').val());
-				Parse.User.current().set('handle', $('#loginHandle').val());
-				Parse.User.current().save(null, {
-					success: function(user) {
-						r.navigate('chatroom', {trigger: true});
-						location.reload();
+					},
+					error: (u, error) => {
+						$('article').show();
+						$('article p').html('Login credentials invalid, please try again.');
+						$('.loginStarTrek div').css('opacity', '0.4');
 					}
-				});
-		}, 500);
+				}
+			);
+
+			setTimeout(function() {
+					Parse.User.current().set('avatar', $('#loginAvatar').val());
+					Parse.User.current().set('handle', $('#loginHandle').val());
+					Parse.User.current().set('tagline', $('#loginTagline').val());
+					Parse.User.current().set('handleColor', $('#loginHandleColor').val());
+					Parse.User.current().save(null, {
+						success: function(user) {
+							r.navigate('chatroom', {trigger: true});
+							location.reload();
+						}
+					});
+			}, 500);
+		}
+		
 	})
 
 	$('#loginAvatar').click(function() {
 		// console.log($('#loginAvatar').val())
 		console.log('Select Clicked')
 		$('#avvyPic').css('background-image', 'url(' + $('#loginAvatar').val() + ')')
+	})
+
+	$('article button').click(function() {
+		$('article').hide();
+		$('.loginStarTrek div').css('opacity', '1');
 	})
 
 	var $text = $('#text');
@@ -140,12 +210,19 @@ $(document).ready(function(){
 			MessageRecipient = $('#to').val() + '';
 		}
 
+		var tagline = Parse.User.current().get('tagline');
+		if(tagline === undefined) {
+			tagline = ''
+		}
+
 		var NewMessage = new MessageModel({
 			Title: Parse.User.current().get('handle'),
 			To: MessageRecipient,
 			Message: sendMessage,
 			PostDate: time,
-			Image: Parse.User.current().get('avatar')
+			Image: Parse.User.current().get('avatar'),
+			Tagline: tagline,
+			HandleColor: Parse.User.current().get('handleColor')
 		}).save()
 
 		$bottom.html('');
@@ -160,7 +237,7 @@ $(document).ready(function(){
 			}
 			else {
 				var MessageList = Messages.map(function(message) {
-					return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="handle">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
+					return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
 				}) 
 			}
 		})
@@ -181,7 +258,7 @@ $(document).ready(function(){
 			}
 			else {
 				var MessageList = Messages.map(function(message) {
-					return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="handle">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
+					return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
 				}) 
 			}
 		})
@@ -210,7 +287,7 @@ $(document).ready(function(){
 			}
 			else {
 				var MessageList = Messages.map(function(message) {
-					return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="handle">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
+					return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
 				}) 
 			}
 		})

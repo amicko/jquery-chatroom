@@ -86,23 +86,25 @@
 						<tr>
 							<td class="cellName">
 								<h5>Username <span>*</span></h5>
-								<p>Your username is for authentication purposes.  It must be unique, be no more than 12 characters, and contain no spaces or special characters other than the underscore character.</p>
+								<p>Your username is for authentication purposes.  It must be unique, nr at least 5 characters, be no more than 12 characters, and contain no spaces or special characters.</p>
 							</td>
 							<td class="cellValue">
 								<input type="text" maxlength="12" id="username"/>
 							</td>
 						</tr>
+						<tr id="usernameError" class="error" colspan="2"></tr>
 						<tr>
 							<td class="cellName">
 								<h5>Command Code <span>*</span></h5>
 								<p>Your command code is a password used for authentication purposes.  The command code must be at least 5 characters but no more than 20.  Enter your command code in both boxes.</p>
 							</td>
 							<td class="cellValue">
-								<input type="text" maxlength="20" id="password1"/>
+								<input type="password" maxlength="20" id="password1"/>
 								<br/>
-								<input type="text" maxlength="50" id="password2"/>
+								<input type="password" maxlength="50" id="password2"/>
 							</td>
 						</tr>
+						<tr id="passwordError" class="error"></tr>
 						<tr>
 							<td class="cellName">
 								<h5>Screen Name <span>*</span></h5>
@@ -112,6 +114,7 @@
 								<input type="text" maxlength="20" id="screenName"/>
 							</td>
 						</tr>
+						<tr id="screenNameError" class="error"></tr>
 						<tr>
 							<td class="cellName">
 								<h5>Email <span>*</span></h5>
@@ -121,6 +124,7 @@
 								<input type="email" maxlength="50" id="email"/>
 							</td>
 						</tr>
+						<tr id="emailError" class="error"></tr>
 						<tr>
 							<td class="cellName">
 								<h5>Genre <span>*</span></h5>
@@ -134,7 +138,7 @@
 								</select>
 							</td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td class="cellName">
 								<h5>Newsletter Recipient?</h5>
 								<p>Outpost 10F sends quarterly newsletters and other important announcements to those interested.  If you are, check this box.</p>
@@ -153,7 +157,7 @@
 								<input type="number" maxlength="2" id="month">MM
 								<input type="number" maxlength="2" id="day">DD
 							</td>
-						</tr>
+						</tr> -->
 					</tbody>
 				</table>
 				<div class="arrowBox">
@@ -164,6 +168,11 @@
 		</div>
 	</section>
 	<section class="loginStarTrek">
+		<article>
+			<h1>Login Failed</h1>
+			<p></p>
+			<button>TRY AGAIN</button>
+		</article>
 		<div>
 			<img class="loginHeaderImage" src="images/loginBannerST.jpg"/>
 		</div>
@@ -183,7 +192,7 @@
 					<tr>
 						<td><img src="images/lcarEnd.gif"></td>
 						<td class="loginBoxTitle">Command Code</td>
-						<td class="loginBoxInput"><input id="loginPassword" type="text"/></td>
+						<td class="loginBoxInput"><input id="loginPassword" type="password"/></td>
 						<td class="loginBoxRight"><img src="images/info_tab_2.gif"></td>
 						<td class="loginTableBorder"><img src="images/right_border.gif"></td>
 					</tr>
@@ -248,8 +257,11 @@
 						<td class="loginBoxInput">
 							<select id="loginHandleColor">
 								<option value="blue">Blue</option>
+								<option value="lightblue">Light Blue</option>
 								<option value="red">Red</option>
+								<option value="lightred">Light Red</option>
 								<option value="green">Green</option>
+								<option value="lightgreen">Light Green</option>
 							</select>
 						</td>
 						<td class="loginBoxRight"><img src="images/info_tab_10.gif"></td>
