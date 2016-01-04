@@ -1,0 +1,204 @@
+.loginStarTrek {
+	background-color: #000;
+	padding-bottom: 1em;
+
+	article {
+		display: none;
+		position: absolute;
+		background-color: black;
+		left: 35%;
+		top: 20em;
+		width: 300px;
+		border: 2px solid white;
+		border-radius: 15px;
+		color: red;
+		text-align: center;
+		margin: 0 auto;
+		opacity: 1;
+		z-index: 99;
+
+		button {
+			background-color: #F4B424;
+			color: #000;
+			font-weight: bold;
+			border: none;
+			border-radius: 15px;
+			padding: 0.05em 2em;
+			margin-bottom: 1em;
+		}
+	}
+
+	div {
+	 	.loginHeaderImage {
+	 		display: block;
+	 		width: 580px;
+	 		margin: 0 auto;
+	 	}
+	}
+
+	div {
+
+	 	table {
+	 		margin: 1em auto;
+	 		border: 15px solid transparent;
+	 		-moz-border-image-top:url("../images/header.gif") 30 30 repeat; /* Old Firefox */
+			-webkit-border-image-top:url("../images/header.gif") 30 30 repeat; /* Safari */
+			-o-border-image-top:url("../images/header.gif") 30 30 repeat; /* Opera */
+			border-image-top:url("../images/header.gif") 30 30 repeat;
+
+	 		tbody {
+
+	 			.tableButtonRow {
+
+	 				td {
+	 					padding-top: 1em;
+
+	 					button {
+	 						padding: 0;
+
+	 						img {
+	 							width: 140px;
+	 							margin-left: -3.5em;
+	 							margin-right: -1em;
+	 							cursor: pointer;
+	 						}
+
+	 						.loginButtonRegister {
+	 							margin-left: 0;
+	 							margin-right: 0;
+	 							cursor: pointer;
+	 						}
+	 					}
+	 				}
+
+	 				.loginTableBorder {
+	 					padding-top: 0;
+	 					img {
+	 						height: 50px;
+	 						width: 6px;
+	 						position: relative;
+	 						left: -12px;
+	 					}
+	 				}
+	 			}
+
+	 			tr {
+
+	 				.loginTableHeader {
+
+	 					img {
+	 						height: 61px;
+	 						width: 570px;
+	 					}
+	 				}
+
+	 				td {
+	 					color: #fff;
+	 					font-weight: bold;
+	 					img {
+	 						height: 24px;
+	 						vertical-align: middle;
+	 						margin: -6px -1px -3px -3px;
+	 					}
+	 				}
+
+	 				.loginBoxTitle {
+	 					/*height: 1em;*/
+	 					font-size: 14px;
+	 					line-height: 15px;
+	 					background-color: #9999CC;
+	 					color: #fff;
+	 					width: 150px;
+	 					padding-left: 3px;
+	 					font-weight: bold;
+	 					/*border: 1px solid #000;*/
+	 				}
+
+	 				.loginBoxInput {
+	 					background-color: #7E7E7E;
+	 					padding: 3px 0 3px 5px;
+	 					width: 242px;
+
+	 					input {
+	 						height: 11px;
+	 						font-size: 11px;
+	 					}
+
+	 					#avvyPic {
+	 						/*background-color: blue;*/
+	 						height: 55px;
+	 						width: 50px;
+	 						background-size: cover;
+	 						background-image: url('../images/st_avatars/picard1.jpg');
+	 					}
+	 				}
+
+	 				.loginBoxSpace {
+	 					width: 200px;
+	 				}
+
+	 				.loginBoxRight {
+	 					
+	 					img {
+	 						padding-left: 3px;
+	 					}
+	 				}
+
+	 				.loginTableFooter {
+
+	 					img {
+	 						width: 570px;
+	 					}
+	 				}
+
+	 				.loginTableBorder {
+	 					margin-top: 0;
+	 					padding-top: 0;
+	 					img {
+	 						height: 30px;
+	 						width: 6px;
+	 						position: relative;
+	 						left: -6px;
+	 					}
+	 				}
+
+	 				td {
+
+	 					.loginBoxRight {
+	 						width: 100px;
+	 					}
+
+	 					.avatarPreview1 {
+	 						padding-top: 1px;
+	 						height: 57px;
+	 						width: 30px;
+	 					}
+
+	 					.avatarPreview2 {
+	 						padding-top: 1px;
+	 						height: 57px;
+	 						width: 92px;
+	 					}
+
+	 					.avatarPreview3 {
+	 						height: 59px;
+	 					}
+	 				}
+	 			}
+	 		}
+	 	}
+	}
+
+	hr {
+		width: 580px;
+		margin: 0 auto;
+	}
+
+	.footer {
+		width: 580px;
+		font-size: 0.75em;
+		color: #fff;
+		text-align: center;
+		margin: 0 auto;
+	}
+}
