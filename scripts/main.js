@@ -45,6 +45,7 @@ $(document).ready(function(){
 	var r = new Router();
 	Backbone.history.start();
 
+	//Registration events
 	$('.next1').click(function() {
 		$('.primeDirectives').hide();
 		$('.internalData').show();
@@ -134,6 +135,7 @@ $(document).ready(function(){
 		$('.internalData').hide();
 	})
 
+	//Chat login events
 	$('#loginChatST').click(function() {
 		var user = Parse.User.current();
 		var avatar = $('#loginAvatar').val()
@@ -186,6 +188,7 @@ $(document).ready(function(){
 		$('.loginStarTrek div').css('opacity', '1');
 	})
 
+	//Chatroom variables and events
 	var $text = $('#text');
 	var $send = $('#send');
 	var $clear = $('#clear');
@@ -274,7 +277,6 @@ $(document).ready(function(){
 		r.navigate('', {trigger: true});
 	})
 
-	// setInterval(function() {
 		$bottom.html('');
 		var MessageQuery = new Parse.Query(MessageModel);
 		var Messages = null;
@@ -291,5 +293,4 @@ $(document).ready(function(){
 				}) 
 			}
 		})
-	// }, 2000);
 })
