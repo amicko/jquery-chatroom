@@ -12662,7 +12662,9 @@ return jQuery;
 },{}],4:[function(require,module,exports){
 'use strict';
 var Backbone = require('backbone');
-Parse.initialize("p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP", "IFuhIp6PfZJQgP9J3pXECV3M5J42jSkpP7mx9rki");
+// Parse.initialize("p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP", "IFuhIp6PfZJQgP9J3pXECV3M5J42jSkpP7mx9rki");
+Parse.initialize('p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP', 'unused');
+Parse.serverURL = 'https://otf-replica.herokuapp.com/';
 
 $(document).ready(function () {
 	var Router = Backbone.Router.extend({
@@ -12706,6 +12708,17 @@ $(document).ready(function () {
 
 	var r = new Router();
 	Backbone.history.start();
+
+	//New Parse code example:
+	// var obj = new Parse.Object('GameScore');
+	// obj.set('score',1337);
+	// obj.save().then(function(obj) {
+	//   console.log(obj.toJSON());
+	//   var query = new Parse.Query('GameScore');
+	//   query.get(obj.id).then(function(objAgain) {
+	//     console.log(objAgain.toJSON());
+	//   }, function(err) {console.log(err); });
+	// }, function(err) { console.log(err); });
 
 	//Registration events
 	$('.next1').click(function () {
