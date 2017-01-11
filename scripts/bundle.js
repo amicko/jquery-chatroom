@@ -12709,13 +12709,11 @@ $(document).ready(function () {
 	var r = new Router();
 	Backbone.history.start();
 
-	var obj = new Parse.Object('MessageModel');
-	var query = new Parse.Query('MessageModel');
-	query.get(obj.id).then(function (objAgain) {
-		console.log(objAgain.toJSON());
-	}, function (err) {
-		console.log(err);
-	});
+	// var obj = new Parse.Object('MessageModel');
+	// var query = new Parse.Query('MessageModel');
+	// query.get(obj.id).then(function(objAgain) {
+	// 	console.log(objAgain.toJSON());
+	// }, function(err) {console.log(err); });
 	console.log('test');
 
 	//New Parse code example:
