@@ -12709,6 +12709,15 @@ $(document).ready(function () {
 	var r = new Router();
 	Backbone.history.start();
 
+	var obj = new Parse.Object('MessageModel');
+	var query = new Parse.Query('MessageModel');
+	query.get(obj.id).then(function (objAgain) {
+		console.log(objAgain.toJSON());
+	}, function (err) {
+		console.log(err);
+	});
+	console.log('test');
+
 	//New Parse code example:
 	// var obj = new Parse.Object('GameScore');
 	// obj.set('score',1337);
@@ -12932,20 +12941,21 @@ $(document).ready(function () {
 	});
 
 	$bottom.html('');
-	var MessageQuery = new Parse.Query(MessageModel);
-	var Messages = null;
+	// var MessageQuery = new Parse.Query(MessageModel);
+	// var Messages = null;
 
-	MessageQuery.descending('createdAt').find().then(function (messages) {
-		Messages = messages;
+	// MessageQuery.descending('createdAt').find().then(function(messages) {
+	// 	Messages = messages
 
-		if (!Messages) {
-			console.log('Loading...');
-		} else {
-			var MessageList = Messages.map(function (message) {
-				return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>');
-			});
-		}
-	});
+	// 	if(!Messages) {
+	// 		console.log('Loading...')
+	// 	}
+	// 	else {
+	// 		var MessageList = Messages.map(function(message) {
+	// 			return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
+	// 		})
+	// 	}
+	// })
 });
 
 },{"backbone":1}]},{},[4])
