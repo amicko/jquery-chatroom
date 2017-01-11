@@ -12662,6 +12662,7 @@ return jQuery;
 },{}],4:[function(require,module,exports){
 'use strict';
 var Backbone = require('backbone');
+var $ = require('jquery');
 // Parse.initialize("p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP", "IFuhIp6PfZJQgP9J3pXECV3M5J42jSkpP7mx9rki");
 Parse.initialize('p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP', 'unused');
 Parse.serverURL = 'https://otf-replica.herokuapp.com/';
@@ -12709,11 +12710,13 @@ $(document).ready(function () {
 	var r = new Router();
 	Backbone.history.start();
 
-	// var obj = new Parse.Object('MessageModel');
-	// var query = new Parse.Query('MessageModel');
-	// query.get(obj.id).then(function(objAgain) {
-	// 	console.log(objAgain.toJSON());
-	// }, function(err) {console.log(err); });
+	var obj = new Parse.Object('MessageModel');
+	var query = new Parse.Query('MessageModel');
+	query.get(obj.id).then(function (objAgain) {
+		console.log(objAgain.toJSON());
+	}, function (err) {
+		console.log(err);
+	});
 	console.log('test');
 
 	//New Parse code example:
@@ -12956,7 +12959,7 @@ $(document).ready(function () {
 	// })
 });
 
-},{"backbone":1}]},{},[4])
+},{"backbone":1,"jquery":2}]},{},[4])
 
 
 //# sourceMappingURL=bundle.js.map
