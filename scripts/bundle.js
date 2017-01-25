@@ -12665,7 +12665,7 @@ var Backbone = require('backbone');
 var $ = require('jquery');
 // Parse.initialize("p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP", "IFuhIp6PfZJQgP9J3pXECV3M5J42jSkpP7mx9rki");
 Parse.initialize('p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP', 'unused');
-Parse.serverURL = 'https://otf-replica.herokuapp.com/';
+Parse.serverURL = 'https://otf-replica.herokuapp.com/parse';
 
 $(document).ready(function () {
 	var Router = Backbone.Router.extend({
@@ -12710,24 +12710,28 @@ $(document).ready(function () {
 	var r = new Router();
 	Backbone.history.start();
 
-	var obj = new Parse.Object('MessageModel');
+	// var obj = new Parse.Object('MessageModel');
+	// var query = new Parse.Query('MessageModel');
+	// query.get(obj.id).then(function(objAgain) {
+	// 	console.log(objAgain.toJSON());
+	// }, function(err) {console.log(err); });
+	// console.log('test');
+
+	//New Parse code example:
+	var obj = Parse.Object.extend('MessageModel');
+	var test = [];
+	console.log(obj);
+	// obj.set('Message','Test');
+	// obj.save().then(function(obj) {
+	// console.log(obj.toJSON());
 	var query = new Parse.Query('MessageModel');
-	query.get(obj.id).then(function (objAgain) {
+	query.get(obj).then(function (objAgain) {
 		console.log(objAgain.toJSON());
+		test = objAgain;
+		console.log(test);
 	}, function (err) {
 		console.log(err);
 	});
-	console.log('test');
-
-	//New Parse code example:
-	// var obj = new Parse.Object('GameScore');
-	// obj.set('score',1337);
-	// obj.save().then(function(obj) {
-	//   console.log(obj.toJSON());
-	//   var query = new Parse.Query('GameScore');
-	//   query.get(obj.id).then(function(objAgain) {
-	//     console.log(objAgain.toJSON());
-	//   }, function(err) {console.log(err); });
 	// }, function(err) { console.log(err); });
 
 	//Registration events
@@ -12905,7 +12909,8 @@ $(document).ready(function () {
 				console.log('Loading...');
 			} else {
 				var MessageList = Messages.map(function (message) {
-					return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>');
+					// return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
+					return $bottom.append('<p>' + message.get('Message') + '<p>');
 				});
 			}
 		});
@@ -12925,7 +12930,8 @@ $(document).ready(function () {
 				console.log('Loading...');
 			} else {
 				var MessageList = Messages.map(function (message) {
-					return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>');
+					// return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
+					return $bottom.append('<p>' + message.get('Message') + '<p>');
 				});
 			}
 		});
@@ -12942,21 +12948,22 @@ $(document).ready(function () {
 	});
 
 	$bottom.html('');
-	// var MessageQuery = new Parse.Query(MessageModel);
-	// var Messages = null;
+	var MessageQuery = new Parse.Query(MessageModel);
+	var Messages = null;
 
-	// MessageQuery.descending('createdAt').find().then(function(messages) {
-	// 	Messages = messages
+	MessageQuery.descending('createdAt').find().then(function (messages) {
+		Messages = messages;
 
-	// 	if(!Messages) {
-	// 		console.log('Loading...')
-	// 	}
-	// 	else {
-	// 		var MessageList = Messages.map(function(message) {
-	// 			return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
-	// 		})
-	// 	}
-	// })
+		if (!Messages) {
+			console.log('Loading...');
+		} else {
+			var MessageList = Messages.map(function (message) {
+				// return $bottom.append('<section class="messageBox"><img class="avatar" src="' + message.get('Image') + '"/><div class="messageDetails"><div class="handle" style="color:' + message.get('HandleColor') + '">' + message.get('Title') + '</div><div class="time">at ' + message.get('PostDate').toString().substr(16, 8) + '</div><div class="tagline">\'' + message.get('Tagline') + ' \'</div></div><div class="message"><span id="toMessage">' + message.get('To') + '</span> ' + message.get('Message') + '</div></section>')
+				return $bottom.append('<p>' + message.get('Message') + '<p>');
+				console.log(message.get('Message'));
+			});
+		}
+	});
 });
 
 },{"backbone":1,"jquery":2}]},{},[4])
