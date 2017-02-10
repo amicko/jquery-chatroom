@@ -1,5 +1,6 @@
 'use strict';
 var Backbone = require('backbone');
+var Parse = require('parse');
 var $ = require('jquery');
 // Parse.initialize("p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP", "IFuhIp6PfZJQgP9J3pXECV3M5J42jSkpP7mx9rki");
 Parse.initialize('p6LVR6361z3dnHn8SMi8n5Vca7yeUaW4wwXuUnjP','unused');
